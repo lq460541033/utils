@@ -1,5 +1,7 @@
 package com.bpf.springbootmail.service;
 
+import com.bpf.springbootmail.common.utils.FileUtil;
+import com.bpf.springbootmail.common.utils.ZipUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
+
+import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -16,7 +20,7 @@ public class ServiceTest {
     private MailService mailService;
     @Autowired
     private TemplateEngine templateEngine;
-    
+
     /**
      * 发送简单纯文本邮件
      */
