@@ -46,20 +46,20 @@ public class SpringbootMailApplicationTests {
 	@Test
 	public void sendAttachmentMail() {
 		String content = "<html><body><h3><font color=\"red\">" + "大家好，这是springboot发送的HTML邮件，有附件哦" + "</font></h3></body></html>";
-		String filePath = "E:/Applications/excel/edm.zip";
+//		String filePath = "E:/Applications/excel/edm.zip";
 		//E:\Applications\excel\edm.zip
-//		String dirName = "E:/Applications/excel/FileUtil/";// 创建目录
-//		FileUtil.createDir(dirName);// 调用方法创建目录
-//		String fileName = dirName + "/file1.txt";// 创建文件
-//		String fileName2 = dirName + "/file1.txt";// 创建文件
-//		FileUtil.FileUtil(fileName);// 调用方法创建文件
-//		FileUtil.FileUtil(fileName2);// 调用方法创建文件
-//		List<File> srcfile=new ArrayList<File>();
-//		srcfile.add(new File(fileName));
-//		srcfile.add(new File(fileName2));
-//		File zipfile = new File(dirName+"edm.zip");
-//		ZipUtil.zipFiles(srcfile, zipfile);
-//		String filePath = zipfile.getPath();
+		String dirName = "E:/Applications/excel/FileUtil/";// 创建目录
+		FileUtil.createDir(dirName);// 调用方法创建目录
+		String fileName = dirName + "/file1.txt";// 创建文件
+		String fileName2 = dirName + "/file2.txt";// 创建文件
+		FileUtil.FileUtil(fileName);// 调用方法创建文件
+		FileUtil.FileUtil(fileName2);// 调用方法创建文件
+		List<File> srcfile=new ArrayList<File>();
+		srcfile.add(new File(fileName));
+		srcfile.add(new File(fileName2));
+		File zipfile = new File(dirName+"edm.zip");
+		ZipUtil.zipFiles(srcfile, zipfile);
+		String filePath = zipfile.getPath();
 		mailService.sendAttachmentMail("luoqiang@efunong.com", "发送邮件测试", content, filePath);
 	}
 
